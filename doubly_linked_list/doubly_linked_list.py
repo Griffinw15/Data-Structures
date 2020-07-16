@@ -33,9 +33,10 @@ class DoublyLinkedList:
         if self.head == None:
             self.head = listnode
         elif self.tail == None:
-            self
+            self.tail = listnode
 
         else:
+            sel.length =+ 1
             #listnode.next = self.head
             #self.head = listnode
             listnode = self.next
@@ -47,7 +48,13 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_head(self):
-        pass
+        if self.head == None:
+            return
+        else:
+            self.length -= 1
+            removed = self.head
+            self.delete(self.head)
+            return removed
             
     """
     Wraps the given value in a ListNode and inserts it 
@@ -101,26 +108,27 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
-        if self.head == None and self.tail == None:
+        if not self.head and self.tail:
             return
-
-        #self.length -= 1
         
         if self.head == self.tail:
             self.head = None
             self.tail = None
 
         elif node == self.head:
-            #self.head == None
             self.head == node.next
-            node.delete()
+            self.head
+            
+            
 
-        elif node==self.tail:
+        elif node == self.tail:
             self.tail = node.prev
-            node.delete()
+            self.tail = 
 
         else:
             node.delete()
+
+        self.length -= 1
 
     """
     Finds and returns the maximum value of all the nodes 
