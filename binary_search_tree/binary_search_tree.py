@@ -98,6 +98,7 @@ class BSTNode:
         return current.value
 
     # Call the function `fn` on the value of each node
+    # doesn't return anything
     def for_each(self, fn):
         # call the anonymous function on `self.value`
         fn(self.value)

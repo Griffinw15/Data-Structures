@@ -40,12 +40,7 @@ class DoublyLinkedList:
             self.head = listnode.next 
             self.head.prev = listnode
             self.head = listnode
-
-            #self.head = current 
-            #self.head = listnode
-            #self.head.next = current
-            #current.prev = listnode
-            
+            #does last line work here?
         
 
     """
@@ -87,11 +82,6 @@ class DoublyLinkedList:
             self.tail.next = listnode
             listnode.prev = self.tail
             self.tail = listnode
-
-            #self.tail = current 
-            #self.tail = listnode
-            #self.tail.next = current
-            #current.prev = listnode
         
             
     """
@@ -109,6 +99,7 @@ class DoublyLinkedList:
            return None
 
         self.tail = self.head = None
+        #change this
 
         return current
 
@@ -122,10 +113,10 @@ class DoublyLinkedList:
             return None
         elif self.tail is self.head:
             return 
-        moved = node
-        node.prev = None
-        self.head = moved.next 
-        self.head = moved
+        move = node
+        move.prev = None
+        self.head = move.next 
+        self.head = move
             
         
     """
@@ -136,15 +127,13 @@ class DoublyLinkedList:
         moved = node
         if moved == self.tail:
             return
+        #look here
         if moved == self.head:
-            self.remove_from_head()
-            self.add_to_tail(moved.value) 
-        else:
-            self.delete(moved)
             self.add_to_tail(moved.value)
-            #end = None
-            #end = self.tail.value
-            #self.add_to_tail(end)
+            self.remove_from_head()
+        else:
+            self.add_to_tail(moved.value)
+            self.delete(moved)
             
 
     """
@@ -158,6 +147,8 @@ class DoublyLinkedList:
         if self.head is self.tail:
             self.head = None
             self.tail = None
+        
+        #look here
 
         elif removal is self.head:
             self.head = removal.next
